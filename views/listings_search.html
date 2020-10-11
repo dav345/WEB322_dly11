@@ -1,0 +1,363 @@
+<!-- 
+------------------------------------------------------
+Assignment 1 - User Interface (UX)
+
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-11
+------------------------------------------------------ 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>EarthBnB</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+      integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ=="
+      crossorigin="anonymous"></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="general.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color:#121f1f;">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid p-0" src="images/EarthBnB_logo.png" alt="Responsive image" width="70" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"></div>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link font-weight-bold" href="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="search-listings">Explore All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload-bnb">Host Yours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-info my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal"
+            data-target="#signInModal"> Sign-In </button>
+        </form>
+      </div>
+    </nav>
+    <!-- ========== NAV BAR END ========== -->
+    <!-- ========== The Sign-UP Modal ========== -->
+    <div class="modal" id="signUpModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title">Sign-Up for an account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body">
+              <div class="form-group d-flex justify-content-center"> You are registering as: </div>
+              <div class="form-group d-flex justify-content-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-outline-info active">
+                    <input type="radio" name="options" id="su-renter" checked /> Renter </label>
+                  <label class="btn btn-outline-info">
+                    <input type="radio" name="options" id="su-owner" /> Owner </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="su-email" placeholder="Email address" name="su-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your email.</div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-fName" placeholder="First name" name="su-fName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback"> Please enter your first name. </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-lName" placeholder="Last name" name="su-lName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="su-password" placeholder="Enter password"
+                  name="su-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter a password.</div>
+              </div>
+              <div class="form-group">
+                <label class="h6" for="su-birthday">Birthday</label>
+                <p>
+                  <small>You must be 18+ to sign-up. Your birthday won't be seen by other users.</small>
+                </p>
+                <input type="date" class="form-control" id="su-birthday" name="su-birthday" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please select your birthday.</div>
+                <p>
+                  <small>You'll receive our promotions and policy updates via email.</small>
+                </p>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal ========== -->
+    <div class="modal" id="signInModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title ">Sign-In to your account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body ">
+              <div class="form-group">
+                <input type="email" class="form-control" id="si-email" placeholder="Email address" name="si-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="si-password" placeholder="Enter password"
+                  name="si-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal - END ========== -->
+    <main role="main">
+      <!-- Main jumbotron  -->
+      <div class="jumbotron">
+        <div class="container">
+          <h6 class="display-5 font-weight-light">321 results<span> · Oct. 12 - Oct. 16</span></h6>
+          <h1 class="display-5">Places to stay</h1>
+          <br>
+          <a class="btn btn-outline-info rounded-pill mr-2" href="#" role="button" data-toggle="button"
+            aria-pressed="false">Entire place</a>
+          <a class="btn btn-outline-info rounded-pill mr-2" href="#" role="button" data-toggle="button"
+            aria-pressed="false">Price</a>
+          <a class="btn btn-outline-info rounded-pill mr-2" href="#" role="button" data-toggle="button"
+            aria-pressed="false">Location</a>
+          <a class="btn btn-outline-info rounded-pill mr-2" href="#" role="button" data-toggle="button"
+            aria-pressed="false">More filters</a>
+        </div>
+      </div>
+      <div class="container">
+        <hr />
+        <div class="row mb-4">
+          <div class="col-auto mr-auto">
+            <h3 class="display-5">Toronto</h3>
+          </div>
+          <div class="col-auto">
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li>
+                  <h3 class="display-5">1 / 3 &nbsp;</h3>
+                </li>
+                <li class="page-item ">
+                  <a class="page-link p-0 " href="#" aria-label="Previous">
+                    <span class="btn btn-outline-info " aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item ">
+                  <a class="page-link p-0 " href="#" aria-label="Next">
+                    <span class="btn btn-outline-info " aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <!-- ========== 1ST / FIRST CARD ========== -->
+          <div class="col-md-4 pb-3">
+            <div class="card h-100 mb-3">
+              <img class="card-img-top rounded" style="max-height: 200px;" src="images/ba533ed4_original.webp"
+                alt="Card image">
+              <div class="card-img-overlay p-1">
+                <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+                  aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+              </div>
+              <a href="bnb-details" class="mt-2" style="z-index: 5;">
+                <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE HOUSE ·
+                    TORONTO</strong></small>
+                <div class="card-body p-2 ">
+                  <h5 class="card-title font-weight-light">Beautiful and bright suite with free parking</h5> $83
+                  CAD<span class="font-weight-light">/night</span> <br>
+                  <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                    style="color: grey;">(210) · Superhost</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 pb-3">
+            <div class="card h-100 mb-3">
+              <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+                alt="Card image">
+              <div class="card-img-overlay p-1">
+                <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+                  aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+              </div>
+              <a href="bnb-details" class="mt-2" style="z-index: 5;">
+                <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                    TORONTO</strong></small>
+                <div class="card-body p-2 ">
+                  <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+                  CAD<span class="font-weight-light">/night</span> <br>
+                  <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                    style="color: grey;">(210) · Superhost</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 pb-3">
+            <div class="card h-100 mb-3">
+              <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+                alt="Card image">
+              <div class="card-img-overlay p-1">
+                <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+                  aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+              </div>
+              <a href="bnb-details" class="mt-2" style="z-index: 5;">
+                <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                    TORONTO</strong></small>
+                <div class="card-body p-2 ">
+                  <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+                  CAD<span class="font-weight-light">/night</span> <br>
+                  <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                    style="color: grey;">(210) · Superhost</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 pb-3">
+            <div class="card h-100 mb-3">
+              <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+                alt="Card image">
+              <div class="card-img-overlay p-1">
+                <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+                  aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+              </div>
+              <a href="bnb-details" class="mt-2" style="z-index: 5;">
+                <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                    TORONTO</strong></small>
+                <div class="card-body p-2 ">
+                  <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+                  CAD<span class="font-weight-light">/night</span> <br>
+                  <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                    style="color: grey;">(210) · Superhost</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 pb-3">
+            <div class="card h-100 mb-3">
+              <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+                alt="Card image">
+              <div class="card-img-overlay p-1">
+                <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+                  aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+              </div>
+              <a href="bnb-details" class="mt-2" style="z-index: 5;">
+                <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                    TORONTO</strong></small>
+                <div class="card-body p-2 ">
+                  <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+                  CAD<span class="font-weight-light">/night</span> <br>
+                  <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                    style="color: grey;">(210) · Superhost</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 pb-3">
+            <div class="card h-100 mb-3">
+              <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+                alt="Card image">
+              <div class="card-img-overlay p-1">
+                <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+                  aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+              </div>
+              <a href="bnb-details" class="mt-2" style="z-index: 5;">
+                <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                    TORONTO</strong></small>
+                <div class="card-body p-2 ">
+                  <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+                  CAD<span class="font-weight-light">/night</span> <br>
+                  <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                    style="color: grey;">(210) · Superhost</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /container -->
+    </main>
+    <footer class="container ">
+      <hr />
+      <div class="row p-0 d-flex justify-content-around">
+        <div class="row-4">
+          <p>
+            <strong>English (CA)</strong> <strong>$ CAD</strong>
+          </p>
+        </div>
+        <div class="row-4">
+          <p>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+          </p>
+        </div>
+        <div class="row-4">
+          <p> © 2020 David Ly </p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>'
+        );
+    </script>
+    <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>

@@ -1,0 +1,57 @@
+/* 
+------------------------------------------------------
+Assignment 1 - User Interface (UX)
+
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-11
+------------------------------------------------------ 
+*/
+
+html body {
+	background-color: #e9ecef;
+	/* whitesmoke */
+}
+
+/* Move down content due to thick fixed navbar */
+body {
+	padding-top: 3.5rem;
+}
+
+img {
+	object-fit: cover;
+}
+
+.navbar {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+#jumbo01 {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('images/The-Treehouse-Durham_940x640.jpg');
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.info-pics {
+	min-width: 148px;
+}
+
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+

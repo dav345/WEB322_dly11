@@ -1,0 +1,315 @@
+<!-- 
+------------------------------------------------------
+Assignment 1 - User Interface (UX)
+
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-11
+------------------------------------------------------ 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>EarthBnB</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+      integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ=="
+      crossorigin="anonymous"></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="general.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color:#121f1f;">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid p-0" src="images/EarthBnB_logo.png" alt="Responsive image" width="70" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"></div>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link font-weight-bold" href="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="search-listings">Explore All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload-bnb">Host Yours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-info my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal"
+            data-target="#signInModal"> Hi, USER </button>
+        </form>
+      </div>
+    </nav>
+    <!-- ========== NAV BAR END ========== -->
+    <!-- ========== The Sign-UP Modal ========== -->
+    <div class="modal" id="signUpModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title">Sign-Up for an account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body">
+              <div class="form-group d-flex justify-content-center"> You are registering as: </div>
+              <div class="form-group d-flex justify-content-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-outline-info active">
+                    <input type="radio" name="options" id="su-renter" checked /> Renter </label>
+                  <label class="btn btn-outline-info">
+                    <input type="radio" name="options" id="su-owner" /> Owner </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="su-email" placeholder="Email address" name="su-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your email.</div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-fName" placeholder="First name" name="su-fName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback"> Please enter your first name. </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-lName" placeholder="Last name" name="su-lName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="su-password" placeholder="Enter password"
+                  name="su-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter a password.</div>
+              </div>
+              <div class="form-group">
+                <label class="h6" for="su-birthday">Birthday</label>
+                <p>
+                  <small>You must be 18+ to sign-up. Your birthday won't be seen by other users.</small>
+                </p>
+                <input type="date" class="form-control" id="su-birthday" name="su-birthday" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please select your birthday.</div>
+                <p>
+                  <small>You'll receive our promotions and policy updates via email.</small>
+                </p>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal ========== -->
+    <div class="modal" id="signInModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title ">Sign-In to your account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body ">
+              <div class="form-group">
+                <input type="email" class="form-control" id="si-email" placeholder="Email address" name="si-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="si-password" placeholder="Enter password"
+                  name="si-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal - END ========== -->
+    <main role="main">
+      <!-- ========== CONFIRM AND PAY main ========== -->
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4 class="display-4">Confirm and pay</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="mr-3">
+                  <hr />
+                </div>
+                <div class="row mt-4 pb-4 ">
+                  <h4 class="display-5 mb-4">Your trip</h4>
+                  <ul class="list-group mr-3 container-fluid">
+                    <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Dates </span><br>
+                      2020-10-15 – 2020-10-22<br>
+                      <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
+                        data-target="#placeholderModal"> Edit </button>
+                    </li>
+                    <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Guests</span><br> 1
+                      guest<br>
+                      <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
+                        data-target="#placeholderModal2"> Edit </button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="row mt-4 pb-4 ">
+                  <h4 class="display-5 mb-4">Pay with</h4>
+                  <ul class="list-group mr-3 container-fluid">
+                    <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Credit Card - on
+                        file:</span><br> XXXX-XXXX-XXXX-1234<br>
+                      <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
+                        data-target="#placeholderModal"> Edit </button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="row pt-4 pb-4">
+                  <button class="btn btn-info " type="button" data-toggle="modal"
+                    data-target="#staticPayConfirmed">Confirm and pay</button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="staticPayConfirmed" data-backdrop="static" data-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticPayConfirmed" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content bg-light">
+                        <div class="modal-header border-0">
+                          <h5 class="modal-title" id="staticBackdropLabel">Payment successful</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body text-center"> Thank you - we hope you enjoy your BnB stay! </div>
+                        <div class="modal-footer border-0">
+                          <button type="button" class="btn btn-outline-success" data-dismiss="modal">Continue</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 mw-100 p-0">
+            <div class="row border border-info rounded ml-3 mb-3 mr-3 p-0">
+              <div class="col p-0">
+                <div class="row d-flex justify-content-center p-0">
+                  <div class="row mt-2">
+                    <div class="col-md-4 p-0 mt-3 ml-5">
+                      <img class="mw-100 rounded" src="/images/ba533ed4_original.webp" alt="" />
+                    </div>
+                    <div class="col-md-6 p-0">
+                      <div class="card bg-transparent border-0">
+                        <div class="card-body small ">
+                          <h6 class="card-subtitle mb-2 text-muted font-weight-light ">Entire guest suite in Toronto
+                          </h6>
+                          <h5 class="card-title font-weight-light ">Beautiful and bright suite with free parking</h5>
+                          <h6 class="card-subtitle mb-2 text-muted font-weight-light ">1 bed · 1 bath</h6>
+                          <span class="card-text font-weight-light " style="color: teal;">★</span> <span
+                            class="">4.96</span> <span class="font-weight-light " style="color: grey;">(210) · 🥇
+                            Superhost</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <table class="table col-md-8">
+                    <tbody>
+                      <tr>
+                        <th scope="row">$83 x 7 nights</th>
+                        <td class="text-right">$580.00</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">10% weekly price discount</th>
+                        <td class="text-right">-$58.00</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Cleaning fee</th>
+                        <td class="text-right">$75.00</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Service fee</th>
+                        <td class="text-right">$84.28</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Total <span class="small">(CAD)</span></th>
+                        <td class="font-weight-bold text-right ">$681.28</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /main container -->
+    </main>
+    <footer class="container ">
+      <hr />
+      <div class="row p-0 d-flex justify-content-around">
+        <div class="row-4">
+          <p>
+            <strong>English (CA)</strong> <strong>$ CAD</strong>
+          </p>
+        </div>
+        <div class="row-4">
+          <p>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+          </p>
+        </div>
+        <div class="row-4">
+          <p> © 2020 David Ly </p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>'
+        );
+    </script>
+    <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>

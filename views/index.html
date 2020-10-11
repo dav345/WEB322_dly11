@@ -1,0 +1,390 @@
+<!-- 
+------------------------------------------------------
+Assignment 1 - User Interface (UX)
+
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-11
+------------------------------------------------------ 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>EarthBnB</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+      integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ=="
+      crossorigin="anonymous"></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="general.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color:#121f1f;">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid p-0" src="images/EarthBnB_logo.png" alt="Responsive image" width="70" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"></div>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link font-weight-bold" href="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="search-listings">Explore All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload-bnb">Host Yours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-info my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal"
+            data-target="#signInModal"> Sign-In </button>
+        </form>
+      </div>
+    </nav>
+    <!-- ========== NAV BAR END ========== -->
+    <!-- ========== The Sign-UP Modal ========== -->
+    <div class="modal" id="signUpModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title">Sign-Up for an account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body">
+              <div class="form-group d-flex justify-content-center"> You are registering as: </div>
+              <div class="form-group d-flex justify-content-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-outline-info active">
+                    <input type="radio" name="options" id="su-renter" checked /> Renter </label>
+                  <label class="btn btn-outline-info">
+                    <input type="radio" name="options" id="su-owner" /> Owner </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="su-email" placeholder="Email address" name="su-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your email.</div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-fName" placeholder="First name" name="su-fName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback"> Please enter your first name. </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-lName" placeholder="Last name" name="su-lName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="su-password" placeholder="Enter password"
+                  name="su-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter a password.</div>
+              </div>
+              <div class="form-group">
+                <label class="h6" for="su-birthday">Birthday</label>
+                <p>
+                  <small>You must be 18+ to sign-up. Your birthday won't be seen by other users.</small>
+                </p>
+                <input type="date" class="form-control" id="su-birthday" name="su-birthday" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please select your birthday.</div>
+                <p>
+                  <small>You'll receive our promotions and policy updates via email.</small>
+                </p>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal ========== -->
+    <div class="modal" id="signInModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title ">Sign-In to your account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body ">
+              <div class="form-group">
+                <input type="email" class="form-control" id="si-email" placeholder="Email address" name="si-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="si-password" placeholder="Enter password"
+                  name="si-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal - END ========== -->
+    <main role="main">
+      <!-- Main jumbotron -->
+      <div class="jumbotron rounded text-light" id="jumbo01">
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-md-10">
+              <h1 class="display-3">Travel Near or Far</h1>
+              <p> Discover new and unique places to stay for business or leisure. </p>
+              <p>
+                <a class="btn btn-outline-info btn-lg " href="search-listings" role="button">Explore &raquo;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- ========== The BOOKING Form ========== -->
+        <div class="container p-4">
+          <div class="row">
+            <div class="col-md-10">
+              <h1 class="display-5">Search for a place to stay:</h1>
+              <form class="form-group" style="width: 430px" action="search-listings" method="GET">
+                <!-- setting to GET for now - typically should be POST -->
+                <p>
+                  <label for="booking-location">Where<br />
+                    <input class="form-control" size="50" placeholder="Where are you going?" id="booking-location"
+                      name="booking-location" spellcheck="false" list="ca-city-list" />
+                  </label>
+                  <datalist id="ca-city-list">
+                    <option label="Barrie" value="Barrie"></option>
+                    <option label="Calgary" value="Calgary"></option>
+                    <option label="Charlottetown" value="Charlottetown"></option>
+                    <option label="Chibougamau" value="Chibougamau"></option>
+                    <option label="Chilliwack" value="Chilliwack"></option>
+                    <option label="Cold Lake" value="Cold Lake"></option>
+                    <option label="Dorval" value="Dorval"></option>
+                    <option label="Edmonton" value="Edmonton"></option>
+                    <option label="Flin Flon" value="Flin Flon"></option>
+                    <option label="Hamilton" value="Hamilton"></option>
+                    <option label="Iqualuit" value="Iqualuit"></option>
+                    <option label="Ottawa" value="Ottawa"></option>
+                    <option label="Miramichi" value="Miramichi"></option>
+                    <option label="Montreal" value="Montreal"></option>
+                    <option label="Red Deer" value="Red Deer"></option>
+                    <option label="St. John" value="St. John"></option>
+                    <option label="St. John's" value="St. John's"></option>
+                    <option label="Toronto" value="Toronto"></option>
+                    <option label="Vancouver" value="Vancouver"></option>
+                    <option label="Whitehorse" value="Whitehorse"></option>
+                    <option label="Winnipeg" value="Winnipeg"></option>
+                    <option label="Yellowknife" value="Yellowknife"></option>
+                  </datalist>
+                  <!-- Source - Gov't of Canada: https://ssl-templates.services.gc.ca/app/cls/WET/gcweb/v4_0_18/unmin/docs/ref/datalist/datalist-en.html?wbdisable=false -->
+                </p>
+                <p>
+                  <label for="booking-checkIn">Check-In<br />
+                    <input class="form-control" required id="booking-checkIn" name="booking-checkIn" type="date"
+                      placeholder="Add date" />
+                  </label>
+                  <label for="booking-checkOut">Check-Out<br />
+                    <input class="form-control" required id="booking-checkOut" name="booking-checkOut" type="date"
+                      placeholder="Add date" />
+                  </label>
+                </p>
+                <p>
+                  <label for="booking-guestNo">Guests<br />
+                    <select class="form-control" id="booking-guestNo" name="booking-guestNo" required>
+                      <option label="How many guests?" value=""></option>
+                      <option label="0 guests" value="0 guests"></option>
+                      <option label="1 guest" value="1 guest"></option>
+                      <option label="2 guests" value="2 guests"></option>
+                      <option label="3 guests" value="3 guests"></option>
+                      <option label="4 guests" value="4 guests"></option>
+                      <option label="5+ guests" value="5 guests"></option>
+                    </select>
+                  </label>
+                </p>
+                <p>
+                  <input class="form-control" id="booking-submit" name="booking-submit" type="submit" value="Search" />
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ========== PROMO / AD BANNER SECTION ========== -->
+      <div class="container p-3 ">
+        <div class="col p-0">
+          <a href="search-listings" data-toggle="tooltip" data-placement="top" title="Click me!">
+            <img class="img-fluid rounded" src="images/WEB322_BannerAd.png" alt="Responsive image" />
+          </a>
+        </div>
+      </div>
+      <!-- ========== PRE-MADE SEARCH FILTERS ========== -->
+      <div class="container p-3">
+        <div class="row mb-4">
+          <!-- ========== 1ST / FIRST CARD ========== -->
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="card-img-top rounded" style="max-height: 190px;"
+                src="images/iStock-693810146-e1536569134562.png" alt="Card image">
+              <div class="card-body p-2">
+                <h4 class="card-title">Popular BnBs in Toronto</h4>
+                <span class="font-weight-light">Explore "The Six", Canada's cultural hub and most diverse city.</span>
+                <a href="search-listings" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="card-img-top rounded" style="max-height: 190px;"
+                src="images/jazz-de-montreal_panorama-pda_wide.jpg" alt="Card image">
+              <div class="card-body p-2">
+                <h4 class="card-title">Popular BnBs in Montreal</h4>
+                <span class="font-weight-light">Get ready to live it up in North America's number one host city for
+                  international events.</span>
+                <a href="search-listings" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="card-img-top rounded" style="max-height: 190px;" src="images/hadden-beach-1.jpg"
+                alt="Card image">
+              <div class="card-body p-2">
+                <h4 class="card-title">Popular BnBs in Vancouver</h4>
+                <span class="font-weight-light">Experience the beauty and great outdoors of Canada's west coast
+                  city.</span>
+                <a href="search-listings" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container p-3">
+        <div class="row d-flex justify-content-center">
+          <div class="col">
+            <div class="row">
+              <div class="col p-1">
+                <img src="images/im-108772.jpeg" class="mw-100 mr-auto info-pics rounded" alt="Responsive image">
+              </div>
+              <div class="col p-1">
+                <img src="images/Elk-River-Ranch-2_940x640.jpg" class="mw-100 info-pics rounded" alt="Responsive image">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col p-1">
+                <img src="images/West-Coast-Contemporary-2_940x640.jpg" class="mw-100 info-pics rounded"
+                  alt="Responsive image">
+              </div>
+              <div class="col p-1">
+                <img src="images/381f65d0-c0ca-11ea-9bcf-9b65f036a32d.jpg" class="mw-100 info-pics rounded"
+                  alt="Responsive image">
+              </div>
+            </div>
+          </div>
+          <div class="col embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item rounded p-2" src="https://www.youtube.com/embed/FzbqSPArxcc"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="container ">
+        <!-- Example row of columns -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-4">
+            <h2>Why rent a BnB?</h2>
+            <ul>
+              <li>Unique experiences</li>
+              <li>Knowledgeable local hosts</li>
+              <li>Generally less expensive and more flexibility compared to hotels</li>
+              <li>Possibility to rent an entire home for better privacy</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2>How to get started?</h2>
+            <ul>
+              <li>Search and filter for a desired place to stay</li>
+              <li>Check out the BnB's details page and ratings</li>
+              <li>Book through our site</li>
+              <li>Arrive and enjoy your stay!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /container -->
+    </main>
+    <footer class="container ">
+      <hr />
+      <div class="row p-0 d-flex justify-content-around">
+        <div class="row-4">
+          <p>
+            <strong>English (CA)</strong> <strong>$ CAD</strong>
+          </p>
+        </div>
+        <div class="row-4">
+          <p>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+          </p>
+        </div>
+        <div class="row-4">
+          <p> © 2020 David Ly </p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>'
+        );
+    </script>
+    <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function ()
+      {
+        if (window.location.href.indexOf('#signUpModal') != -1)
+        {
+          $('#signUpModal').modal('show');
+        }
+      });
+    </script>
+  </body>
+
+</html>

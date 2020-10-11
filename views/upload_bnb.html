@@ -1,0 +1,369 @@
+<!-- 
+------------------------------------------------------
+Assignment 1 - User Interface (UX)
+
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-11
+------------------------------------------------------ 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>EarthBnB</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+      integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ=="
+      crossorigin="anonymous"></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="general.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color:#121f1f;">
+      <a class="navbar-brand" href="/">
+        <img class="img-fluid p-0" src="images/EarthBnB_logo.png" alt="Responsive image" width="70" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"></div>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link font-weight-bold" href="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="search-listings">Explore All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload-bnb">Host Yours</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold" data-toggle="modal" data-target="#signUpModal">Sign-Up</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-outline-info my-2 my-sm-0 font-weight-bold" type="button" data-toggle="modal"
+            data-target="#signInModal"> Sign-In </button>
+        </form>
+      </div>
+    </nav>
+    <!-- ========== NAV BAR END ========== -->
+    <!-- ========== The Sign-UP Modal ========== -->
+    <div class="modal" id="signUpModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title">Sign-Up for an account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body">
+              <div class="form-group d-flex justify-content-center"> You are registering as: </div>
+              <div class="form-group d-flex justify-content-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-outline-info active">
+                    <input type="radio" name="options" id="su-renter" checked /> Renter </label>
+                  <label class="btn btn-outline-info">
+                    <input type="radio" name="options" id="su-owner" /> Owner </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="su-email" placeholder="Email address" name="su-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your email.</div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-fName" placeholder="First name" name="su-fName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback"> Please enter your first name. </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="su-lName" placeholder="Last name" name="su-lName"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="su-password" placeholder="Enter password"
+                  name="su-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please enter a password.</div>
+              </div>
+              <div class="form-group">
+                <label class="h6" for="su-birthday">Birthday</label>
+                <p>
+                  <small>You must be 18+ to sign-up. Your birthday won't be seen by other users.</small>
+                </p>
+                <input type="date" class="form-control" id="su-birthday" name="su-birthday" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please select your birthday.</div>
+                <p>
+                  <small>You'll receive our promotions and policy updates via email.</small>
+                </p>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal ========== -->
+    <div class="modal" id="signInModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-light">
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h4 class="modal-title ">Sign-In to your account:</h4>
+            <button type="button" class="close" data-dismiss="modal"> &times; </button>
+          </div>
+          <!-- Modal body -->
+          <form class="needs-validation" action="" method="POST">
+            <div class="modal-body ">
+              <div class="form-group">
+                <input type="email" class="form-control" id="si-email" placeholder="Email address" name="si-email"
+                  required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="si-password" placeholder="Enter password"
+                  name="si-password" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer border-0">
+              <button type="submit" class="btn btn-success">Sign-In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ========== The Sign-IN Modal - END ========== -->
+    <main role="main">
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <!-- ========== LISTING DETAILS ========== -->
+      <!-- ========== LISTING DETAILS - HEADER ========== -->
+      <div class="container pt-5">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col-md-10">
+                    <div class="row">
+                      <h4 class="display-4">Upload your BnB</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="mr-3">
+                  <hr />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container ">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-8 min-vh-100 ">
+            <form>
+              <div class="form-group">
+                <label for="ub-address">Address</label>
+                <input class="form-control" id="ub-address" type="text" placeholder="Your BnB's full address:">
+              </div>
+              <div class="form-group">
+                <label for="ub-privacy">Level of privacy</label>
+                <select class="custom-select" id="ub-privacy">
+                  <option>The area of your BnB your renters have to themselves during their stay:</option>
+                  <option>Entire place</option>
+                  <option>Private room</option>
+                  <option>Shared room</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ub-guests">Guest limit</label>
+                <select class="custom-select" id="ub-guests">
+                  <option>The number of guests your renters are allowed to bring to your BnB</option>
+                  <option>0 guests</option>
+                  <option>1 guest</option>
+                  <option>2 guests</option>
+                  <option>3 guests</option>
+                  <option>4 guests</option>
+                  <option>5+ guests</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ub-propType">Property type</label>
+                <select class="custom-select" id="ub-propType">
+                  <option>The specific type of property where you're hosting your BnB</option>
+                  <option>Apartment</option>
+                  <option>Bed and breakfast</option>
+                  <option>Boutique hotel</option>
+                  <option>House</option>
+                  <option>Secondary unit</option>
+                  <option>Unique space</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ub-bedrooms">Bedrooms</label>
+                <select class="custom-select" id="ub-bedrooms">
+                  <option>The number of bedrooms available for renters in your BnB</option>
+                  <option>0 bedrooms</option>
+                  <option>1 bedroom</option>
+                  <option>2 bedrooms</option>
+                  <option>3 bedrooms</option>
+                  <option>4 bedrooms</option>
+                  <option>5+ bedrooms</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ub-bathrooms">Bathrooms</label>
+                <select class="custom-select" id="ub-bathrooms">
+                  <option>The number of bathrooms available for renters in your BnB</option>
+                  <option>0 bathrooms</option>
+                  <option>1 bathroom</option>
+                  <option>1.5 bathrooms</option>
+                  <option>2 bathrooms</option>
+                  <option>2.5 bathrooms</option>
+                  <option>3 bathrooms</option>
+                  <option>3.5 bathrooms</option>
+                  <option>4+ bathrooms</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Let us know if your place includes any special amenities that are popular with guests:</label>
+                <div class="row row-cols-2">
+                  <div class="col">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="ub-amenities-gym">
+                      <label class="custom-control-label" for="ub-amenities-gym">Gym</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="ub-amenities-waterfront">
+                      <label class="custom-control-label" for="ub-amenities-waterfront">Waterfront</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="ub-amenities-hotTub">
+                      <label class="custom-control-label" for="ub-amenities-hotTub">Hot tub</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="ub-amenities-beachfront">
+                      <label class="custom-control-label" for="ub-amenities-beachfront">Beachfront</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-control custom-checkbox ">
+                      <input type="checkbox" class="custom-control-input" id="ub-amenities-pool">
+                      <label class="custom-control-label" for="ub-amenities-pool">Pool</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row row-cols-2">
+                  <div class="col">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="ub-photo1">
+                      <label class="custom-file-label" for="ub-photo1">Choose photo</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="ub-photo2">
+                      <label class="custom-file-label" for="ub-photo2">Choose photo</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="ub-photo3">
+                      <label class="custom-file-label" for="ub-photo3">Choose photo</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="ub-photo4">
+                      <label class="custom-file-label" for="ub-photo4">Choose photo</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="ub-photo5">
+                      <label class="custom-file-label" for="ub-photo5">Choose photo</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="ub-photo6">
+                      <label class="custom-file-label" for="ub-photo6">Choose photo</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group d-flex justify-content-center">
+                <button type="submit" class="btn btn-info mt-3">Start your listing</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- /main container -->
+    </main>
+    <footer class="container ">
+      <hr />
+      <div class="row p-0 d-flex justify-content-around">
+        <div class="row-4">
+          <p>
+            <strong>English (CA)</strong> <strong>$ CAD</strong>
+          </p>
+        </div>
+        <div class="row-4">
+          <p>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter fa-2x"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+          </p>
+        </div>
+        <div class="row-4">
+          <p> © 2020 David Ly </p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="https://getbootstrap.com/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>'
+        );
+    </script>
+    <script src="https://getbootstrap.com/docs/4.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>

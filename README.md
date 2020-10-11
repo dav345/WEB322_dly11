@@ -1,4 +1,4 @@
-# WEB322_dly11
+# WEB322_dly11 (Section: NGG)
 WEB322 Assignments
 
 Current submission: Assignment 1

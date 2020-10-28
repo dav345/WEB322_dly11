@@ -1,0 +1,45 @@
+<!--
+======================================================
+Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-28
+======================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EarthBnB</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="general.css" />
+  </head>
+
+  <body>
+    {{> nav_bar }}
+    {{{body}}} {{> footer }}
+    <!-- BOOTSTRAP REQUIRED JS SCRIPTS -->
+    <script src="jquery-3.5.1.slim.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <!-- SOCIAL MEDIA ICONS (Font Awesome) -->
+    <script src="all.min.js"></script>
+    <script src="feather.min.js"></script>
+    <script>feather.replace();</script>
+    <!-- SIGN-UP MODAL OPEN SCRIPT - when adding #signUpModal to end of URL -->
+    <script>
+      $(document).ready(function ()
+      {
+        if (window.location.href.indexOf('#signUpModal') != -1)
+        {
+          $('#signUpModal').modal('show');
+        }
+      });
+    </script>
+  </body>
+
+</html>

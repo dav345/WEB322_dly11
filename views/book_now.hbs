@@ -1,0 +1,128 @@
+{{!-- 
+======================================================
+Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-28
+====================================================== 
+--}}
+<main role="main">
+  <!-- ========== CONFIRM AND PAY main ========== -->
+  <div class="container mt-5 pl-5">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="row">
+                  <h4 class="display-4">Confirm and pay</h4>
+                </div>
+              </div>
+            </div>
+            <div class="mr-3">
+              <hr />
+            </div>
+            <div class="row mt-4 pb-4 ">
+              <h4 class="display-5 mb-4">Your trip</h4>
+              <ul class="list-group mr-3 container-fluid">
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Dates </span><br> 2020-10-15
+                  – 2020-10-22<br>
+                  <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
+                    data-target="#placeholderModal"> Edit </button>
+                </li>
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Guests</span><br> 1 guest<br>
+                  <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
+                    data-target="#placeholderModal2"> Edit </button>
+                </li>
+              </ul>
+            </div>
+            <div class="row mt-4 pb-4 ">
+              <h4 class="display-5 mb-4">Pay with</h4>
+              <ul class="list-group mr-3 container-fluid">
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Credit Card - on
+                    file:</span><br> XXXX-XXXX-XXXX-1234<br>
+                  <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
+                    data-target="#placeholderModal"> Edit </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5  p-0">
+        <div class="row border border-info rounded  mb-3 mr-4 p-5">
+          <div class="col p-0">
+            <div class="row d-flex justify-content-center p-0">
+              <div class="row d-flex justify-content-center mt-2">
+                <div class="card bg-transparent border-0" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="/images/ba533ed4_original.webp" class="card-img mt-3" alt="">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body small ">
+                        <h6 class="card-subtitle mb-2 text-muted font-weight-light ">Entire guest suite in Toronto </h6>
+                        <h5 class="card-title font-weight-light ">Beautiful and bright suite with free parking</h5>
+                        <h6 class="card-subtitle mb-2 text-muted font-weight-light ">1 bed · 1 bath</h6>
+                        <span class="card-text font-weight-light " style="color: teal;">★</span> <span
+                          class="">4.96</span> <span class="font-weight-light " style="color: grey;">(210) · 🥇
+                          Superhost</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <table class="table col-md-8">
+                <tbody>
+                  <tr>
+                    <th scope="row">$83 x 7 nights</th>
+                    <td class="text-right">$580.00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10% weekly price discount</th>
+                    <td class="text-right">-$58.00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cleaning fee</th>
+                    <td class="text-right">$75.00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Service fee</th>
+                    <td class="text-right">$84.28</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total <span class="small">(CAD)</span></th>
+                    <td class="font-weight-bold text-right ">$681.28</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn btn-info " type="button" data-toggle="modal" data-target="#staticPayConfirmed">Confirm
+                and pay</button>
+              <!-- Modal -->
+              <div class="modal fade" id="staticPayConfirmed" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                aria-labelledby="staticPayConfirmed" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content bg-light">
+                    <div class="modal-header border-0">
+                      <h5 class="modal-title" id="staticBackdropLabel">Payment successful</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body text-center"> Thank you - we hope you enjoy your BnB stay! </div>
+                    <div class="modal-footer border-0">
+                      <button type="button" class="btn btn-outline-success" data-dismiss="modal">Continue</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /main container -->
+</main>

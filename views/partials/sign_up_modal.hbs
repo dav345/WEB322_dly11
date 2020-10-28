@@ -1,0 +1,158 @@
+{{!-- 
+======================================================
+Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-28
+====================================================== 
+--}}
+<!-- ========== The Sign-UP Modal START ========== -->
+<div class="modal" id="signUpModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-light">
+      <!-- Modal Header -->
+      <div class="modal-header border-0">
+        <h4 class="modal-title">Sign-Up for an account:</h4>
+        <button type="button" class="close" data-dismiss="modal"> &times; </button>
+      </div>
+      <!-- Modal body -->
+      <!-- ////////// FORM START //////////////////// -->
+      <!-- ////////// TEST: action="https://httpbin.org/post" action="sign-in-process" enctype="multipart/form-data" -->
+      <form class="needs-validation" id="signUpForm" action="sign-up-process" method="POST">
+        <div class="modal-body">
+          <div class="form-group d-flex justify-content-center"> You are registering as: </div>
+          <div class="form-group d-flex justify-content-center">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-outline-info active">
+                <input type="radio" name="userType" id="su-owner" value="Owner" checked /> Owner </label>
+              <label class="btn btn-outline-info ">
+                <input type="radio" name="userType" id="su-renter" value="Renter" /> Renter </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="su-email" placeholder="Email address" name="email" />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter your complete email.</div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="su-fName" placeholder="First name" name="fName" />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback"> Please enter your complete first name. </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="su-lName" placeholder="Last name" name="lName" />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter your complete last name.</div>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="su-password" placeholder="Enter password" name="password" />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Password must be:<br />6-12 characters, letters (at least 1 CAPITAL) and
+              numbers only.</div>
+          </div>
+          <div class="form-group">
+            <label class="h6" for="su-birthday">Birthday</label>
+            <p>
+              <small>You must be 18+ to sign-up. Your birthday won't be seen by other users.</small>
+            </p>
+            <input type="date" class="form-control" id="su-birthday" name="birthday" />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please select your birthday.</div>
+            <p>
+              <small>You'll receive our promotions and policy updates via email.</small>
+            </p>
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer border-0">
+          <button type="submit" class="btn btn-success">Sign-Up</button>
+        </div>
+      </form>
+      <!-- ////////// FORM END //////////////////// -->
+      <script>
+
+        let signUpForm = document.querySelector('#signUpForm');
+
+        signUpForm.onsubmit = function ()
+        {
+          let status = true;
+
+          clearMessagesOfInputIds(
+            '#su-email',
+            '#su-password',
+            '#su-fName',
+            '#su-lName',
+            '#su-birthday'
+          );
+
+          let email = document.querySelector('#su-email');
+          let password = document.querySelector('#su-password');
+          let fName = document.querySelector('#su-fName');
+          let lName = document.querySelector('#su-lName');
+          let birthday = document.querySelector('#su-birthday');
+
+          // check EMAIL
+          if (email.value === "")
+          {
+            email.classList.add('is-invalid');
+            status = false;
+          }
+          else
+            email.classList.add('is-valid');
+
+          // check PASSWORD
+          let passRegEx = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,12}$/;
+          if (!password.value.match(passRegEx))
+          {
+            password.classList.add('is-invalid');
+            status = false;
+          }
+          else
+            password.classList.add('is-valid');
+
+          // check F-NAME
+          if (fName.value === "")
+          {
+            fName.classList.add('is-invalid');
+            status = false;
+          }
+          else
+            fName.classList.add('is-valid');
+
+          // check L-NAME
+          if (lName.value === "")
+          {
+            lName.classList.add('is-invalid');
+            status = false;
+          }
+          else
+            lName.classList.add('is-valid');
+
+          // check BIRTHDAY
+          if (birthday.value === "")
+          {
+            birthday.classList.add('is-invalid');
+            status = false;
+          }
+          else
+            birthday.classList.add('is-valid');
+
+          return status;
+        };
+
+        // function to clear status messages
+        function clearMessagesOfInputIds(...theArgs)
+        {
+          theArgs.forEach(element =>
+          {
+            document.querySelector(element).classList.remove('is-invalid');
+            document.querySelector(element).classList.remove('is-valid');
+          });
+        }
+
+      </script>
+    </div>
+  </div>
+</div>
+<!-- ========== The Sign-UP Modal END ========== -->

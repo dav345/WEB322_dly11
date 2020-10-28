@@ -1,0 +1,178 @@
+{{!-- 
+======================================================
+Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-28
+====================================================== 
+--}}
+<main role="main">
+  <!-- Main jumbotron  -->
+  <div class="jumbotron">
+    <div class="container">
+      <h6 class="display-5 font-weight-light">321 results<span> · Oct. 12 - Oct. 16</span></h6>
+      <h1 class="display-5">Places to stay</h1>
+      <br>
+      <a class="btn btn-outline-info rounded-pill mr-2 mb-2" href="#" role="button" data-toggle="button"
+        aria-pressed="false">Entire place</a>
+      <a class="btn btn-outline-info rounded-pill mr-2 mb-2" href="#" role="button" data-toggle="button"
+        aria-pressed="false">Price</a>
+      <a class="btn btn-outline-info rounded-pill mr-2 mb-2" href="#" role="button" data-toggle="button"
+        aria-pressed="false">Location</a>
+      <a class="btn btn-outline-info rounded-pill mr-2 mb-2" href="#" role="button" data-toggle="button"
+        aria-pressed="false">More filters</a>
+    </div>
+  </div>
+  <div class="container">
+    <hr />
+    <div class="row mb-4">
+      <div class="col-auto mr-auto">
+        <h3 class="display-5">Toronto</h3>
+      </div>
+      <div class="col-auto">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li>
+              <h3 class="display-0">1 / 3 &nbsp;</h3>
+            </li>
+            <li class="page-item ">
+              <a class="page-link p-0 bg-transparent" href="#" aria-label="Previous">
+                <span class="btn btn-outline-info " aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item ">
+              <a class="page-link p-0 bg-transparent" href="#" aria-label="Next">
+                <span class="btn btn-outline-info " aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <!-- ========== 1ST / FIRST CARD ========== -->
+      <div class="col-md-4 pb-3">
+        <div class="card h-100 mb-3">
+          <img class="card-img-top rounded" style="max-height: 200px;" src="images/ba533ed4_original.webp"
+            alt="Card image">
+          <div class="card-img-overlay p-1">
+            <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+              aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+          </div>
+          <a href="bnb-details" class="mt-2" style="z-index: 5;">
+            <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE HOUSE ·
+                TORONTO</strong></small>
+            <div class="card-body p-2 ">
+              <h5 class="card-title font-weight-light">Beautiful and bright suite with free parking</h5> $83 CAD<span
+                class="font-weight-light">/night</span> <br>
+              <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                style="color: grey;">(210) · Superhost</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-3">
+        <div class="card h-100 mb-3">
+          <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+            alt="Card image">
+          <div class="card-img-overlay p-1">
+            <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+              aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+          </div>
+          <a href="bnb-details" class="mt-2" style="z-index: 5;">
+            <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                TORONTO</strong></small>
+            <div class="card-body p-2 ">
+              <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+              CAD<span class="font-weight-light">/night</span> <br>
+              <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                style="color: grey;">(210) · Superhost</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-3">
+        <div class="card h-100 mb-3">
+          <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+            alt="Card image">
+          <div class="card-img-overlay p-1">
+            <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+              aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+          </div>
+          <a href="bnb-details" class="mt-2" style="z-index: 5;">
+            <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                TORONTO</strong></small>
+            <div class="card-body p-2 ">
+              <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+              CAD<span class="font-weight-light">/night</span> <br>
+              <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                style="color: grey;">(210) · Superhost</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-3">
+        <div class="card h-100 mb-3">
+          <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+            alt="Card image">
+          <div class="card-img-overlay p-1">
+            <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+              aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+          </div>
+          <a href="bnb-details" class="mt-2" style="z-index: 5;">
+            <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                TORONTO</strong></small>
+            <div class="card-body p-2 ">
+              <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+              CAD<span class="font-weight-light">/night</span> <br>
+              <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                style="color: grey;">(210) · Superhost</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-3">
+        <div class="card h-100 mb-3">
+          <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+            alt="Card image">
+          <div class="card-img-overlay p-1">
+            <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+              aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+          </div>
+          <a href="bnb-details" class="mt-2" style="z-index: 5;">
+            <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                TORONTO</strong></small>
+            <div class="card-body p-2 ">
+              <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+              CAD<span class="font-weight-light">/night</span> <br>
+              <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                style="color: grey;">(210) · Superhost</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 pb-3">
+        <div class="card h-100 mb-3">
+          <img class="card-img-top rounded" style="max-height: 200px;" src="images/27496569_original.jpg"
+            alt="Card image">
+          <div class="card-img-overlay p-1">
+            <button type="button" class="btn btn-outline-danger border-0 float-right p-1" data-toggle="button"
+              aria-pressed="false" style="z-index: 10;">&nbsp; ♡ &nbsp;</button>
+          </div>
+          <a href="bnb-details" class="mt-2" style="z-index: 5;">
+            <small class="p-2 mt-2 font-weight-light" style="color: grey;"><strong>ENTIRE APARTMENT ·
+                TORONTO</strong></small>
+            <div class="card-body p-2 ">
+              <h5 class="card-title font-weight-light">1 - Amazing space with great views near city core</h5> $195
+              CAD<span class="font-weight-light">/night</span> <br>
+              <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+                style="color: grey;">(210) · Superhost</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
+</main>

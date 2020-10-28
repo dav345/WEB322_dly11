@@ -1,0 +1,158 @@
+{{!-- 
+======================================================
+Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-28
+====================================================== 
+--}}
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <!-- ========== LISTING DETAILS ========== -->
+  <!-- ========== LISTING DETAILS - HEADER ========== -->
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="row">
+                  <h4 class="display-4">Upload your BnB</h4>
+                </div>
+              </div>
+            </div>
+            <div class="mr-3">
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container ">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 ">
+        <form class="needs-validation" action="#" method="">
+          <div class="form-group">
+            <label for="ub-address">Address</label>
+            <input class="form-control" id="ub-address" type="text" placeholder="Your BnB's full address:">
+          </div>
+          <div class="form-group">
+            <label for="ub-privacy">Level of privacy</label>
+            <select class="custom-select" id="ub-privacy">
+              <option>Area your renters have to themselves</option>
+              <option>Entire place</option>
+              <option>Private room</option>
+              <option>Shared room</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ub-guests">Guest limit</label>
+            <select class="custom-select" id="ub-guests">
+              <option>Guests your renters are allowed to bring</option>
+              <option>0 guests</option>
+              <option>1 guest</option>
+              <option>2 guests</option>
+              <option>3 guests</option>
+              <option>4 guests</option>
+              <option>5+ guests</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ub-propType">Property type</label>
+            <select class="custom-select" id="ub-propType">
+              <option>Specific type of property</option>
+              <option>Apartment</option>
+              <option>Bed and breakfast</option>
+              <option>Boutique hotel</option>
+              <option>House</option>
+              <option>Secondary unit</option>
+              <option>Unique space</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ub-bedrooms">Bedrooms</label>
+            <select class="custom-select" id="ub-bedrooms">
+              <option>Bedrooms available for renters</option>
+              <option>0 bedrooms</option>
+              <option>1 bedroom</option>
+              <option>2 bedrooms</option>
+              <option>3 bedrooms</option>
+              <option>4 bedrooms</option>
+              <option>5+ bedrooms</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ub-bathrooms">Bathrooms</label>
+            <select class="custom-select" id="ub-bathrooms">
+              <option>Bathrooms available for renters</option>
+              <option>0 bathrooms</option>
+              <option>1 bathroom</option>
+              <option>1.5 bathrooms</option>
+              <option>2 bathrooms</option>
+              <option>2.5 bathrooms</option>
+              <option>3 bathrooms</option>
+              <option>3.5 bathrooms</option>
+              <option>4+ bathrooms</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Any special amenities that are popular with guests:</label>
+            <div class="row row-cols-3">
+              <div class="col">
+                <div class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input" id="ub-amenities-gym">
+                  <label class="custom-control-label" for="ub-amenities-gym">Gym</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input" id="ub-amenities-waterfront">
+                  <label class="custom-control-label" for="ub-amenities-waterfront">Waterfront</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input" id="ub-amenities-hotTub">
+                  <label class="custom-control-label" for="ub-amenities-hotTub">Hot tub</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input" id="ub-amenities-beachfront">
+                  <label class="custom-control-label" for="ub-amenities-beachfront">Beachfront</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input" id="ub-amenities-pool">
+                  <label class="custom-control-label" for="ub-amenities-pool">Pool</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="custom-control custom-checkbox ">
+                  <input type="checkbox" class="custom-control-input" id="ub-amenities-dungeon">
+                  <label class="custom-control-label" for="ub-amenities-dungeon">Dungeon</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row ">
+              <div class="col">
+                <label for="ub-photo1">Upload a photo</label>
+                <input type="file" class="form-control-file" id="ub-photo1">
+              </div>
+            </div>
+          </div>
+          <div class="form-group d-flex justify-content-center">
+            <button type="submit" class="btn btn-info mt-3">Start your listing</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /main container -->
+</main>

@@ -1,0 +1,209 @@
+{{!-- 
+======================================================
+Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11@myseneca.ca
+Date:			  2020-10-28
+====================================================== 
+--}}
+<main role="main">
+  <!-- Main jumbotron  -->
+  <div class="container pt-5 mt-3">
+    <h3 class="display-5">Beautiful and bright suite with free parking</h3>
+    <div class="row mb-3">
+      <div class="col-auto mr-auto">
+        <span class="font-weight-light" style="color: teal;">★</span> 4.96 <span class="font-weight-light"
+          style="color: grey;">(210) · 🥇 Superhost · Toronto, Ontario, Canada</span>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-outline-info border-0  p-1 "> &nbsp;<span
+            class="fas fa-share"></span>&nbsp;Share&nbsp; </button>
+        <button type="button" class="btn btn-outline-danger border-0  p-1 " data-toggle="button" aria-pressed="false">
+          &nbsp;♡&nbsp;Save&nbsp; </button>
+      </div>
+    </div>
+  </div>
+  <!-- ========== GALLERY PICS ========== -->
+  <div class="container ">
+    <div class="row  justify-content-center ">
+      <div class="col-md-6 ">
+        <div class="row ">
+          <div class="col p-1">
+            <img class="mw-100 rounded" src="/images/ba533ed4_original.webp" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ">
+        <div class="row row-cols-2">
+          <div class="col p-1">
+            <img class="mw-100 rounded" src="/images/da270b4b_original.webp" alt="" />
+          </div>
+          <div class="col p-1">
+            <img class="mw-100 rounded" src="/images/4c946ba5_original.webp" alt="" />
+          </div>
+          <div class="col p-1">
+            <img class="mw-100 rounded" src="/images/58ad833d_original.webp" alt="" />
+          </div>
+          <div class="col p-1">
+            <img class="card mw-100 rounded" src="/images/6ce4df38_original.webp" alt="" />
+            <div class="card-img-overlay p-2">
+              <button type="button" class="btn btn-outline-warning  float-right ">Show all photos</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ========== LISTING DETAILS ========== -->
+  <!-- ========== LISTING DETAILS - HEADER ========== -->
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col-md-10">
+                <div class="row p-1">
+                  <h4 class="display-5">Entire guest suite hosted by Laura And Peter</h4>
+                </div>
+                <div class="row p-1">
+                  <span class="font-weight-light"
+                    title="For sectioned out BnB's - we'd add 'shared' to any room that is">2 guests · 1 bedroom · 1 bed
+                    · 1 bath</span>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col p-1">
+                    <img class="card mw-100 rounded" style="max-height: 66px;" src="images/original.webp" alt="" />
+                    <div class="card-img-overlay p-3">
+                      <span class=" float-right ">🥇</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="row p-1 pt-4 pb-4">
+              <ul class="list-group">
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Entire home</span><br> You’ll
+                  have the guest suite to yourself.</li>
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Enhanced
+                    cleanliness</span><br> This host committed to our 5-step enhanced cleaning process</li>
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Superhost status</span><br>
+                  Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                </li>
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Cancellation
+                    policy</span><br> Cancel before 3:00 PM on Oct. 15 and only get a refund of the cleaning fee. </li>
+              </ul>
+            </div>
+            <div class="row p-1 pt-4 pb-4">
+              <ul class="list-group">
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Description</span><br> Our
+                  property is only 30 min from downtown Toronto. This is a Gorgeous One Bedroom Apartment for 1 or 2
+                  adults, featured on this page.</li>
+              </ul>
+            </div>
+            <div class="row p-1 pt-4 pb-4">
+              <ul class="list-group">
+                <li class="list-group-item bg-transparent ">
+                  <h4 class="display-5"> Sleeping arrangements</h4>
+                </li>
+                <li class="list-group-item bg-transparent "><span class="font-weight-bold"> Bedroom 1</span><br> 1
+                  double bed</li>
+              </ul>
+            </div>
+            <div class="row p-1 pt-4 pb-4">
+              <ul class="list-group">
+                <li class="list-group-item bg-transparent ">
+                  <h4 class="display-5"> Amenities</h4>
+                </li>
+                <li class="list-group-item bg-transparent "> Free parking on premises</li>
+                <li class="list-group-item bg-transparent "> Wifi</li>
+                <li class="list-group-item bg-transparent "> Kitchen</li>
+                <li class="list-group-item bg-transparent "> Pool</li>
+                <li class="list-group-item bg-transparent "> Laptop-friendly workspace</li>
+                <li class="list-group-item bg-transparent border-0">
+                  <button class="btn btn-outline-info col" type="submit">Show all amenities</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 mw-100">
+        <div class="row border border-info rounded ml-3 mb-3 mr-3 pt-5">
+          <div class="col ">
+            <div class="row d-flex justify-content-center">
+              <h4 class="display-5"><del class="font-weight-light">$83</del> $75 /night</h4>
+            </div>
+            <form id="reserveForm">
+              <div class="form-group  ">
+                <div class="row d-flex justify-content-center">
+                  <label for="rf-checkIn"><small>CHECK-IN</small>
+                    <input type="date" class="form-control form-control-sm p-1" id="rf-checkIn" required>
+                  </label>
+                  <label for="rf-checkOut"><small>CHECK-OUT</small>
+                    <input type="date" class="form-control form-control-sm p-1" id="rf-checkOut" required>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group ">
+                <div class="row d-flex justify-content-center">
+                  <label class="col-md-9" for="rf-guestsNo"><small>GUESTS</small>
+                    <select class="form-control form-control-sm" id="rf-guestsNo">
+                      <option>0 guests</option>
+                      <option>1 guest</option>
+                      <option>2 guests</option>
+                      <option>3 guests</option>
+                      <option>4 guests</option>
+                      <option>5+ guests</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group  ">
+                <div class="row d-flex justify-content-center">
+                  {{#if data.fName}}
+                    <a class="btn btn-info col-md-8 m-1" href="book-now" role="button">Book Now</a>
+                  {{else}}
+                    <span class="btn btn-secondary">Sign-Up / Sign-In first</span>
+                  {{/if}}
+                </div>
+              </div>
+            </form>
+            <small class="row d-flex justify-content-center pb-3">You won't be charged yet</small>
+            <div class="row d-flex justify-content-center">
+              <table class="table col-md-8">
+                <tbody>
+                  <tr>
+                    <th scope="row">$83 x 7 nights</th>
+                    <td class="text-right">$580</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10% weekly price discount</th>
+                    <td class="text-right">-$58</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cleaning fee</th>
+                    <td class="text-right">$75</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Service fee</th>
+                    <td class="text-right">$84</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total</th>
+                    <td class="font-weight-bold text-right">$681</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /main container -->
+</main>

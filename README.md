@@ -1,14 +1,26 @@
 # WEB322_dly11 (Section: NGG)
 WEB322 Assignments
 
-Current submission: Assignment 2
+Current submission: Assignment 3, 4, 5
 
 Note:
-Was not able to upload node_modules folder to Github (> 100 files not allowed).
-However, everything else (e.g. package.json etc.) was uploaded successfully.
+Due to Github policy (> 100 files not allowed), was not able to upload:
+- node_modules
+- tinymce
 
 Heroku link:
 https://desolate-headland-78609.herokuapp.com/home
 
 Youtube link:
-https://youtu.be/730Fj8ejruw
+https://www.youtube.com/playlist?list=PLOZ9OBP42rCb8BIF2UlyQElUifI3lKx9w
+
+
+Test Acct Credentials:
+
+Admin:
+username: testadmin
+password: adminPass322
+
+User:
+username: testuser
+password: userPass322

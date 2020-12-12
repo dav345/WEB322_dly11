@@ -1,0 +1,57 @@
+{{!-- 
+======================================================
+Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Course:			WEB 322
+Author:			David Ly
+Email:			dly11 at myseneca.ca
+Date:			  2020-10-28
+====================================================== 
+--}}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">
+            {{#if user.isAdmin}} Admin {{else}} User {{/if}} Dashboard</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            {{!-- 
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Shortcut 1</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Shortcut 2</button>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span> More options </button>
+                    --}}
+        </div>
+    </div>
+    <div class="jumbotron m-0 ">
+        <h1 class="display-0">Hello, {{user.firstName}} {{user.lastName}}!</h1>
+        {{#if user.isAdmin}}
+            <p class="lead text-success font-weight-bold">You're an ADMIN</p>
+        {{/if}}
+        <p class="lead">Here is where you can get a quick overview of important info.</p>
+        <hr class="my-4">
+    </div>
+    {{!-- <h2>Account Info</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Header</th>
+                            <th>Header</th>
+                            <th>Header</th>
+                            <th>Header</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>acctInfo 1</td>
+                            <td>acctInfo 2</td>
+                            <td>acctInfo 3</td>
+                            <td>acctInfo 4</td>
+                            <td>acctInfo 5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> --}}
+</main>

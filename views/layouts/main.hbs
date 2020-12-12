@@ -1,10 +1,10 @@
 <!--
 ======================================================
-Assignment 2 - Responsive, Handlebars, Forms Processing and Email
+Assignment 3 4 5
 Course:			WEB 322
 Author:			David Ly
 Email:			dly11@myseneca.ca
-Date:			  2020-10-28
+Date:			  2020-12-11
 ======================================================
 -->
 <!DOCTYPE html>
@@ -15,29 +15,41 @@ Date:			  2020-10-28
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>EarthBnB</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- My CSS -->
-    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="/css/general.css" />
   </head>
 
   <body>
     {{> nav_bar }}
     {{{body}}} {{> footer }}
     <!-- BOOTSTRAP REQUIRED JS SCRIPTS -->
-    <script src="jquery-3.5.1.slim.min.js"></script>
-    <script src="bootstrap.bundle.min.js"></script>
+    <script src="/fwk/jquery-3.5.1.slim.min.js"></script>
+    <script src="/fwk/bootstrap.bundle.min.js"></script>
     <!-- SOCIAL MEDIA ICONS (Font Awesome) -->
-    <script src="all.min.js"></script>
-    <script src="feather.min.js"></script>
+    <script src="/fwk/all.min.js"></script>
+    <script src="/fwk/feather.min.js"></script>
     <script>feather.replace();</script>
     <!-- SIGN-UP MODAL OPEN SCRIPT - when adding #signUpModal to end of URL -->
     <script>
       $(document).ready(function ()
       {
+
         if (window.location.href.indexOf('#signUpModal') != -1)
         {
           $('#signUpModal').modal('show');
         }
+
+        if (window.location.href.indexOf('#signInModal') != -1)
+        {
+          $('#signInModal').modal('show');
+        }
+
+        if (window.location.href.indexOf('#staticPayConfirmed') != -1)
+        {
+          $('#staticPayConfirmed').modal('show');
+        }
+
       });
     </script>
   </body>

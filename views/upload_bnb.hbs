@@ -7,6 +7,14 @@ Email:			dly11@myseneca.ca
 Date:			  2020-10-28
 ====================================================== 
 --}}
+<script src="/fwk/tinymce/tinymce.min.js"></script>
+<script>
+
+  tinymce.init({
+    selector: '.tmce',
+  });
+
+</script>
 <main role="main">
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <!-- ========== LISTING DETAILS ========== -->
@@ -19,7 +27,9 @@ Date:			  2020-10-28
             <div class="row">
               <div class="col-md-10">
                 <div class="row">
-                  <h4 class="display-4">Upload your BnB</h4>
+                  <h4 class="display-4">
+                    {{#if room._id}} Edit {{else}} Upload {{/if}} your BnB
+                  </h4>
                 </div>
               </div>
             </div>
@@ -34,123 +44,219 @@ Date:			  2020-10-28
   <div class="container ">
     <div class="row d-flex justify-content-center">
       <div class="col-md-8 ">
-        <form class="needs-validation" action="#" method="">
+        <!-- ////////// TEST: action="https://httpbin.org/post" // action="/upload-bnb/edit/update-a-room" // action="/search-listings" -->
+        <form class="needs-validation" {{#if room._id}} action="/upload-bnb/edit/update-a-room" {{else}}
+          action="/upload-bnb" {{/if}} method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <label for="ub-address">Address</label>
-            <input class="form-control" id="ub-address" type="text" placeholder="Your BnB's full address:">
+            {{!-- 
+            <div class="invalid-feedback-myCustom"> TEST ERROR SECTION: {{{message}}}</div>
+ --}}
+            <input type="hidden" id='roomIDmain' name="roomID" value="{{room._id}}" />
           </div>
           <div class="form-group">
-            <label for="ub-privacy">Level of privacy</label>
-            <select class="custom-select" id="ub-privacy">
-              <option>Area your renters have to themselves</option>
-              <option>Entire place</option>
-              <option>Private room</option>
-              <option>Shared room</option>
+            <label for="ub-address">Title</label>
+            <input class="form-control" id="ub-title" name="title" type="text" placeholder="Title your BnB"
+              value="{{room.title}}">
+          </div>
+          <div class="form-group">
+            <label for="ub-price">Price per night ($ CAD)</label>
+            <input class="form-control" id="ub-price" name="price" type="number" min="0" value="{{room.price}}">
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2 " for="ub-location">Description</label>
+            <textarea class="tmce" id="ub-description" name="description"
+              placeholder="e.g. Tell renters a little about your place."> {{{room.description}}} </textarea>
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2 " for="ub-location">Details</label>
+            <textarea class="tmce" id="ub-details" name="details" placeholder="e.g. List the highlights of your place.">
+            {{{room.details}}} </textarea>
+          </div>
+          <div class="form-group">
+            <label class="mr-sm-2 " for="ub-location">Location</label>
+            <select class="custom-select mr-sm-2" id="ub-location" name="location" required>
+              <option selected value="{{room.location}}">
+                {{#if room.location}}
+                  {{room.location}}
+                {{else}} Pick a supported location {{/if}}
+              </option>
+              <option value="Montreal">Montreal</option>
+              <option value="Toronto">Toronto</option>
+              <option value="Vancouver">Vancouver</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="ub-guests">Guest limit</label>
-            <select class="custom-select" id="ub-guests">
-              <option>Guests your renters are allowed to bring</option>
-              <option>0 guests</option>
-              <option>1 guest</option>
-              <option>2 guests</option>
-              <option>3 guests</option>
-              <option>4 guests</option>
-              <option>5+ guests</option>
+            <label class="mr-sm-2 " for="ub-propertyType">Property type</label>
+            <select class="custom-select mr-sm-2" id="ub-propertyType" name="propertyType">
+              <option selected value="{{room.propertyType}}">
+                {{#if room.propertyType}}
+                  {{room.propertyType}}
+                {{else}} Specific type of property {{/if}}
+              </option>
+              <option value='APARTMENT'> Apartment</option>
+              <option value='HOUSE'> House</option>
+              <option value='SECONDARY UNIT'> Secondary Unit</option>
+              <option value='UNIQUE SPACE'> Unique Space</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="ub-propType">Property type</label>
-            <select class="custom-select" id="ub-propType">
-              <option>Specific type of property</option>
-              <option>Apartment</option>
-              <option>Bed and breakfast</option>
-              <option>Boutique hotel</option>
-              <option>House</option>
-              <option>Secondary unit</option>
-              <option>Unique space</option>
+            <label class="mr-sm-2 " for="ub-guests">Guest limit</label>
+            <select class="custom-select mr-sm-2" id="ub-guests" name="guests" required>
+              <option selected value="{{room.guestsNum}}">
+                {{#if room.guestsNum}}
+                  {{room.guestsNum}}
+                {{else}} Number of guests allowed {{/if}}
+              </option>
+              <option value="0">0 guests</option>
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="ub-bedrooms">Bedrooms</label>
-            <select class="custom-select" id="ub-bedrooms">
-              <option>Bedrooms available for renters</option>
-              <option>0 bedrooms</option>
-              <option>1 bedroom</option>
-              <option>2 bedrooms</option>
-              <option>3 bedrooms</option>
-              <option>4 bedrooms</option>
-              <option>5+ bedrooms</option>
+            <label class="mr-sm-2 " for="ub-bedrooms">Available bedrooms</label>
+            <select class="custom-select mr-sm-2" id="ub-bedrooms" name="bedrooms" required>
+              <option selected value="{{room.bedroomsNum}}">
+                {{#if room.bedroomsNum}}
+                  {{room.bedroomsNum}}
+                {{else}} Number of bedrooms {{/if}}
+              </option>
+              <option value="0">0 bedrooms</option>
+              <option value="1">1 bedroom</option>
+              <option value="2">2 bedrooms</option>
+              <option value="3">3 bedrooms</option>
+              <option value="4">4 bedrooms</option>
+              <option value="5">5 bedrooms</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="ub-bathrooms">Bathrooms</label>
-            <select class="custom-select" id="ub-bathrooms">
-              <option>Bathrooms available for renters</option>
-              <option>0 bathrooms</option>
-              <option>1 bathroom</option>
-              <option>1.5 bathrooms</option>
-              <option>2 bathrooms</option>
-              <option>2.5 bathrooms</option>
-              <option>3 bathrooms</option>
-              <option>3.5 bathrooms</option>
-              <option>4+ bathrooms</option>
+            <label class="mr-sm-2 " for="ub-beds">Available beds</label>
+            <select class="custom-select mr-sm-2" id="ub-beds" name="beds" required>
+              <option selected value="{{room.bedsNum}}">
+                {{#if room.bedsNum}}
+                  {{room.bedsNum}}
+                {{else}} Number of beds {{/if}}
+              </option>
+              <option value="0">0 beds</option>
+              <option value="1">1 bed</option>
+              <option value="2">2 beds</option>
+              <option value="3">3 beds</option>
+              <option value="4">4 beds</option>
+              <option value="5">5 beds</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Any special amenities that are popular with guests:</label>
-            <div class="row row-cols-3">
+            <label class="mr-sm-2 " for="ub-baths">Available baths</label>
+            <select class="custom-select mr-sm-2" id="ub-baths" name="baths" required>
+              <option selected value="{{room.bathsNum}}">
+                {{#if room.bathsNum}}
+                  {{room.bathsNum}}
+                {{else}} Number of baths {{/if}}
+              </option>
+              <option value="0">0 baths</option>
+              <option value="1">1 bath</option>
+              <option value="2">2 baths</option>
+              <option value="3">3 baths</option>
+              <option value="4">4 baths</option>
+              <option value="5">5 baths</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <div class="row mt-2">
               <div class="col">
-                <div class="custom-control custom-checkbox ">
-                  <input type="checkbox" class="custom-control-input" id="ub-amenities-gym">
-                  <label class="custom-control-label" for="ub-amenities-gym">Gym</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="custom-control custom-checkbox ">
-                  <input type="checkbox" class="custom-control-input" id="ub-amenities-waterfront">
-                  <label class="custom-control-label" for="ub-amenities-waterfront">Waterfront</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="custom-control custom-checkbox ">
-                  <input type="checkbox" class="custom-control-input" id="ub-amenities-hotTub">
-                  <label class="custom-control-label" for="ub-amenities-hotTub">Hot tub</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="custom-control custom-checkbox ">
-                  <input type="checkbox" class="custom-control-input" id="ub-amenities-beachfront">
-                  <label class="custom-control-label" for="ub-amenities-beachfront">Beachfront</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="custom-control custom-checkbox ">
-                  <input type="checkbox" class="custom-control-input" id="ub-amenities-pool">
-                  <label class="custom-control-label" for="ub-amenities-pool">Pool</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="custom-control custom-checkbox ">
-                  <input type="checkbox" class="custom-control-input" id="ub-amenities-dungeon">
-                  <label class="custom-control-label" for="ub-amenities-dungeon">Dungeon</label>
-                </div>
+                {{#if room.photoFileNames.[4]}}
+                  <label class="text-success">Photo limit reached (5 maximum)</label>
+                {{else}}
+                  <label class="text-info">Upload photos (5 maximum):</label>
+                {{/if}}
               </div>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="row ">
-              <div class="col">
-                <label for="ub-photo1">Upload a photo</label>
-                <input type="file" class="form-control-file" id="ub-photo1">
-              </div>
+            <div class="row row-cols-1 ">
+              {{#unless room.photoFileNames.[0]}} {{room.photoFileNames.[0]}}
+                <div class="col">
+                  <input type="file" class="form-control-file " id="ub-photo1" name="photos" accept="image/*">
+                </div>
+              {{/unless}}
+              {{#unless room.photoFileNames.[1]}} {{room.photoFileNames.[1]}}
+                <div class="col">
+                  <input type="file" class="form-control-file" id="ub-photo2" name="photos" accept="image/*">
+                </div>
+              {{/unless}}
+              {{#unless room.photoFileNames.[2]}} {{room.photoFileNames.[2]}}
+                <div class="col">
+                  <input type="file" class="form-control-file" id="ub-photo3" name="photos" accept="image/*">
+                </div>
+              {{/unless}}
+              {{#unless room.photoFileNames.[3]}} {{room.photoFileNames.[3]}}
+                <div class="col">
+                  <input type="file" class="form-control-file" id="ub-photo4" name="photos" accept="image/*">
+                </div>
+              {{/unless}}
+              {{#unless room.photoFileNames.[4]}} {{room.photoFileNames.[4]}}
+                <div class="col">
+                  <input type="file" class="form-control-file" id="ub-photo5" name="photos" accept="image/*">
+                </div>
+              {{/unless}}
             </div>
           </div>
           <div class="form-group d-flex justify-content-center">
-            <button type="submit" class="btn btn-info mt-3">Start your listing</button>
+            <button class="btn btn-info mt-3" type="submit">Submit Info</button>
           </div>
         </form>
+        <div class="mr-3 mt-5">
+          <hr />
+        </div>
+        <div class="row mt-5">
+          <p class="h4 text-primary">
+            {{#if hasPhotos}} Your current photos: {{/if}}
+          </p>
+        </div>
+        <div class="row">
+          {{#if hasPhotos }} {{#each room.photoFileNames}}
+              <div class="photo-tile rounded">
+                <div>
+                  <img src="/photos/{{this}}" style="width:100%;" />
+                </div>
+                <div class="remove" title="Remove photo">
+                  <!-- https://httpbin.org/post /// action="/upload-bnb/edit/remove-a-photo" -->
+                  <form action="/upload-bnb/edit/remove-a-photo" method="post">
+                    <input type="hidden" id='roomID' name="roomID" value="{{../room._id}}" />
+                    <input type="hidden" id='photoIndex' name="photoIndex" value="{{@index}}" />
+                    <input type="hidden" id='photoFileName' name="photoFileName" value="{{this}}" />
+                    <button class="rounded btn-outline-danger" type="button" data-toggle="modal"
+                      data-target="#removePhoto{{@index}}">
+                      <img src="/images/trash_can.png" width="10" />
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="removePhoto{{@index}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content bg-light">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm Photo Delete</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body"> Are you sure you'd like to delete this photo? </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Cancel</button>
+                            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- //////////////////////////////// -->
+                </div>
+              </div>
+            {{/each}}
+          {{else}}
+            <p class="text-danger"> This listing has no photos uploaded. Please upload some photos. </p>
+          {{/if}}
+        </div>
       </div>
     </div>
   </div>

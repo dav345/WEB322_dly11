@@ -19,17 +19,19 @@ Date:			  2020-10-28
       <!-- Modal body -->
       <!-- ////////// FORM START //////////////////// -->
       <!-- ////////// TEST: action="https://httpbin.org/post" -->
-      <form class="needs-validation " id="signInForm" action="sign-in-process" method="POST">
+      <form class="needs-validation " id="signInForm" action="/sign-in-process" method="POST">
         <div class="modal-body ">
+          <!-- ERROR MESSAGES -->
           <div class="form-group">
-            <input type="email" class="form-control" id="si-email" placeholder="Email address" name="email" />
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback">Please enter your complete email.</div>
+            <div class="invalid-feedback-myCustom">{{{validationMsgsSI}}}</div>
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" id="si-password" placeholder="Enter password" name="password" />
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback">Please enter your password.</div>
+            <input type="username" class="form-control" id="si-username" placeholder="Username" name="username" />
+            <div class="invalid-feedback">Please correctly enter your username.</div>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="si-password" placeholder="Password" name="password" />
+            <div class="invalid-feedback">Please correctly enter your password.</div>
           </div>
         </div>
         <!-- Modal footer -->
@@ -40,37 +42,37 @@ Date:			  2020-10-28
       <!-- ////////// FORM END ////////// -->
       <script>
 
-        let signInForm = document.querySelector('#signInForm');
+        const signInForm = document.querySelector('#signInForm');
 
         signInForm.onsubmit = function ()
         {
           let status = true;
 
           clearMessagesOfInputIds(
-            '#si-email',
+            '#si-username',
             '#si-password'
           );
 
-          let email = document.querySelector('#si-email');
-          let password = document.querySelector('#si-password');
-
-          // check EMAIL
-          if (email.value === "")
+          // function to check for nulls
+          function checkForNulls(...theArgs)
           {
-            email.classList.add('is-invalid');
-            status = false;
+            theArgs.forEach(field =>
+            {
+              if (field.value === "")
+              {
+                field.classList.add('is-invalid');
+                status = false;     // THIS === reason that func is in this block
+              }
+            });
           }
-          else
-            email.classList.add('is-valid');
 
-          // check PASSWORD
-          if (password.value === "")
-          {
-            password.classList.add('is-invalid');
-            status = false;
-          }
-          else
-            password.classList.add('is-valid');
+          const username = document.querySelector('#si-username');
+          const password = document.querySelector('#si-password');
+
+          checkForNulls(
+            username,
+            password,
+          );
 
           return status;
         };
@@ -81,7 +83,6 @@ Date:			  2020-10-28
           theArgs.forEach(element =>
           {
             document.querySelector(element).classList.remove('is-invalid');
-            document.querySelector(element).classList.remove('is-valid');
           });
         }
 

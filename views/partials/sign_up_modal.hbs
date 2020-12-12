@@ -18,51 +18,45 @@ Date:			  2020-10-28
       </div>
       <!-- Modal body -->
       <!-- ////////// FORM START //////////////////// -->
-      <!-- ////////// TEST: action="https://httpbin.org/post" action="sign-in-process" enctype="multipart/form-data" -->
-      <form class="needs-validation" id="signUpForm" action="sign-up-process" method="POST">
+      <!-- ////////// TEST: action="https://httpbin.org/post" action="/sign-up-process" enctype="multipart/form-data" -->
+      <form class="needs-validation" id="signUpForm" action="/sign-up-process" method="POST">
         <div class="modal-body">
-          <div class="form-group d-flex justify-content-center"> You are registering as: </div>
-          <div class="form-group d-flex justify-content-center">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-outline-info active">
-                <input type="radio" name="userType" id="su-owner" value="Owner" checked /> Owner </label>
-              <label class="btn btn-outline-info ">
-                <input type="radio" name="userType" id="su-renter" value="Renter" /> Renter </label>
+          <div class="form-group">
+            <!-- ERROR MESSAGES -->
+            <div class="form-group">
+              <div class="invalid-feedback-myCustom">{{{validationMsgsSU}}}</div>
             </div>
+            <input type="text" class="form-control" id="su-username" placeholder="Username" name="username" />
+            <div class="invalid-feedback">Username: only letters / numbers / dashes / underscores allowed.</div>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="su-email" placeholder="Email address" name="email" />
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback">Please enter your complete email.</div>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="su-fName" placeholder="First name" name="fName" />
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback"> Please enter your complete first name. </div>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="su-lName" placeholder="Last name" name="lName" />
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback">Please enter your complete last name.</div>
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="su-password" placeholder="Enter password" name="password" />
-            <div class="valid-feedback">Looks good!</div>
+            <input type="password" class="form-control" id="su-password" placeholder="Password" name="password" />
             <div class="invalid-feedback">Password must be:<br />6-12 characters, letters (at least 1 CAPITAL) and
               numbers only.</div>
           </div>
           <div class="form-group">
-            <label class="h6" for="su-birthday">Birthday</label>
+            <input type="email" class="form-control" id="su-email" placeholder="Email Address" name="email" />
+            <div class="invalid-feedback">Please enter your complete email.</div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="su-fName" placeholder="First Name" name="fName" />
+            <div class="invalid-feedback">First Name: only letters / numbers / dashes / underscores allowed.</div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="su-lName" placeholder="Last Name" name="lName" />
+            <div class="invalid-feedback">Last Name: only letters / numbers / dashes / underscores allowed.</div>
+          </div>
+          {{!-- <div class="form-group">
+            <label class="h6" for="su-birthdate">Birthdate</label>
             <p>
-              <small>You must be 18+ to sign-up. Your birthday won't be seen by other users.</small>
+              <small>You must be 18+ to sign-up. Your birthdate won't be seen by other users.</small>
             </p>
-            <input type="date" class="form-control" id="su-birthday" name="birthday" />
-            <div class="valid-feedback">Looks good!</div>
-            <div class="invalid-feedback">Please select your birthday.</div>
+            <input type="date" class="form-control" id="su-birthdate" name="birthdate" />
+            <div class="invalid-feedback">Please select your birthdate.</div>
             <p>
               <small>You'll receive our promotions and policy updates via email.</small>
             </p>
-          </div>
+          </div> --}}
         </div>
         <!-- Modal footer -->
         <div class="modal-footer border-0">
@@ -70,73 +64,73 @@ Date:			  2020-10-28
         </div>
       </form>
       <!-- ////////// FORM END //////////////////// -->
+      <!-- -->
       <script>
 
-        let signUpForm = document.querySelector('#signUpForm');
+        const signUpForm = document.querySelector('#signUpForm');
 
         signUpForm.onsubmit = function ()
         {
           let status = true;
 
           clearMessagesOfInputIds(
-            '#su-email',
+            '#su-username',
             '#su-password',
+            '#su-email',
             '#su-fName',
             '#su-lName',
-            '#su-birthday'
+            '#su-birthdate'
           );
 
-          let email = document.querySelector('#su-email');
-          let password = document.querySelector('#su-password');
-          let fName = document.querySelector('#su-fName');
-          let lName = document.querySelector('#su-lName');
-          let birthday = document.querySelector('#su-birthday');
-
-          // check EMAIL
-          if (email.value === "")
+          // function to check for nulls
+          function checkForNulls(...theArgs)
           {
-            email.classList.add('is-invalid');
-            status = false;
+            theArgs.forEach(field =>
+            {
+              if (field.value === "")
+              {
+                field.classList.add('is-invalid');
+                status = false;   // THIS === reason that func is in this block
+              }
+            });
           }
-          else
-            email.classList.add('is-valid');
-
-          // check PASSWORD
-          let passRegEx = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,12}$/;
-          if (!password.value.match(passRegEx))
+          // function to check for REGEX VIOLATION
+          function checkRegEx(field, regEx)
           {
-            password.classList.add('is-invalid');
-            status = false;
+            if (!field.value.match(regEx))
+            {
+              field.classList.add('is-invalid');
+              status = false;     // THIS === reason that func is in this block
+            }
           }
-          else
-            password.classList.add('is-valid');
 
-          // check F-NAME
-          if (fName.value === "")
-          {
-            fName.classList.add('is-invalid');
-            status = false;
-          }
-          else
-            fName.classList.add('is-valid');
+          const username = document.querySelector('#su-username');
+          const password = document.querySelector('#su-password');
+          const email = document.querySelector('#su-email');
+          const fName = document.querySelector('#su-fName');
+          const lName = document.querySelector('#su-lName');
+          const birthdate = document.querySelector('#su-birthdate');
 
-          // check L-NAME
-          if (lName.value === "")
-          {
-            lName.classList.add('is-invalid');
-            status = false;
-          }
-          else
-            lName.classList.add('is-valid');
+          // REGEX
+          const passRegEx = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,12}$/;
+          const emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          const namesRegEx = /^[A-Za-z0-9_-]*$/;
 
-          // check BIRTHDAY
-          if (birthday.value === "")
-          {
-            birthday.classList.add('is-invalid');
-            status = false;
-          }
-          else
-            birthday.classList.add('is-valid');
+          checkForNulls(
+            username,
+            password,
+            email,
+            fName,
+            lName,
+            birthdate
+          );
+
+          // check IF VIOLATES REGEX
+          checkRegEx(username, namesRegEx);
+          checkRegEx(password, passRegEx);
+          checkRegEx(email, emailRegEx);
+          checkRegEx(fName, namesRegEx);
+          checkRegEx(lName, namesRegEx);
 
           return status;
         };
@@ -147,11 +141,11 @@ Date:			  2020-10-28
           theArgs.forEach(element =>
           {
             document.querySelector(element).classList.remove('is-invalid');
-            document.querySelector(element).classList.remove('is-valid');
           });
         }
 
       </script>
+      <!-- -->
     </div>
   </div>
 </div>

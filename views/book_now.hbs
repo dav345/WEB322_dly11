@@ -27,14 +27,11 @@ Date:			  2020-10-28
             <div class="row mt-4 pb-4 ">
               <h4 class="display-5 mb-4">Your trip</h4>
               <ul class="list-group mr-3 container-fluid">
-                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Dates </span><br> 2020-10-15
-                  – 2020-10-22<br>
-                  <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
-                    data-target="#placeholderModal"> Edit </button>
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Dates </span><br>
+                  {{startDate}} – {{endDate}}<br>
                 </li>
-                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Guests</span><br> 1 guest<br>
-                  <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
-                    data-target="#placeholderModal2"> Edit </button>
+                <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Guests </span><br>
+                  {{guestsAmount}} guest(s) <br>
                 </li>
               </ul>
             </div>
@@ -43,8 +40,6 @@ Date:			  2020-10-28
               <ul class="list-group mr-3 container-fluid">
                 <li class="list-group-item bg-transparent"><span class="font-weight-bold"> Credit Card - on
                     file:</span><br> XXXX-XXXX-XXXX-1234<br>
-                  <button type="button" class="btn btn-outline-secondary p-0 pl-2 pr-2" data-toggle="modal"
-                    data-target="#placeholderModal"> Edit </button>
                 </li>
               </ul>
             </div>
@@ -59,16 +54,15 @@ Date:			  2020-10-28
                 <div class="card bg-transparent border-0" style="max-width: 540px;">
                   <div class="row no-gutters">
                     <div class="col-md-4">
-                      <img src="/images/ba533ed4_original.webp" class="card-img mt-3" alt="">
+                      <img src="/photos/{{room.photoFileNames.[0]}}" class="card-img mt-3" alt="">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body small ">
-                        <h6 class="card-subtitle mb-2 text-muted font-weight-light ">Entire guest suite in Toronto </h6>
-                        <h5 class="card-title font-weight-light ">Beautiful and bright suite with free parking</h5>
-                        <h6 class="card-subtitle mb-2 text-muted font-weight-light ">1 bed · 1 bath</h6>
-                        <span class="card-text font-weight-light " style="color: teal;">★</span> <span
-                          class="">4.96</span> <span class="font-weight-light " style="color: grey;">(210) · 🥇
-                          Superhost</span>
+                        <h6 class="card-subtitle mb-2 text-muted font-weight-light "> {{room.propertyType}} ·
+                          {{room.location}} </h6>
+                        <h5 class="card-title font-weight-light "> {{room.title}} </h5>
+                        <h6 class="card-subtitle mb-2 text-muted font-weight-light "> {{room.bedsNum}} bed(s) ·
+                          {{room.bathsNum}} bath(s) </h6>
                       </div>
                     </div>
                   </div>
@@ -77,29 +71,20 @@ Date:			  2020-10-28
               <table class="table col-md-8">
                 <tbody>
                   <tr>
-                    <th scope="row">$83 x 7 nights</th>
-                    <td class="text-right">$580.00</td>
+                    <th scope="row">${{room.price}} x {{daysDiff}} nights</th>
+                    <td class="text-right">${{roomCharge}}</td>
                   </tr>
                   <tr>
-                    <th scope="row">10% weekly price discount</th>
-                    <td class="text-right">-$58.00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Cleaning fee</th>
-                    <td class="text-right">$75.00</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Service fee</th>
-                    <td class="text-right">$84.28</td>
+                    <th scope="row">Guest fee ($20 per guest)</th>
+                    <td class="text-right">${{guestCharge}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Total <span class="small">(CAD)</span></th>
-                    <td class="font-weight-bold text-right ">$681.28</td>
+                    <td class="font-weight-bold text-right ">${{amountPaid}}</td>
                   </tr>
                 </tbody>
               </table>
-              <button class="btn btn-info " type="button" data-toggle="modal" data-target="#staticPayConfirmed">Confirm
-                and pay</button>
+              <a class="btn btn-info " href="/book-now/confirmed">Book Room Now</a>
               <!-- Modal -->
               <div class="modal fade" id="staticPayConfirmed" data-backdrop="static" data-keyboard="false" tabindex="-1"
                 aria-labelledby="staticPayConfirmed" aria-hidden="true">
@@ -111,7 +96,8 @@ Date:			  2020-10-28
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body text-center"> Thank you - we hope you enjoy your BnB stay! </div>
+                    <div class="modal-body text-center"> Thank you - we hope you enjoy your BnB stay! We also emailed
+                      you a copy. </div>
                     <div class="modal-footer border-0">
                       <button type="button" class="btn btn-outline-success" data-dismiss="modal">Continue</button>
                     </div>

@@ -11,7 +11,7 @@ Due to Github policy (> 100 files not allowed), was not able to upload:
 Heroku link:
 https://desolate-headland-78609.herokuapp.com/home
 
-GitHub repository (Private):
+GitHub repository:
 --- https://github.com/dav345/WEB322_dly11
 
 Youtube link:
